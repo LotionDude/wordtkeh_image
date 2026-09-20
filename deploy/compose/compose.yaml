@@ -1,0 +1,39 @@
+services:
+  wordtkeh:
+    # Uses the image loaded from the release tar. Override to pull from Artifactory.
+    image: ${WORDTKEH_IMAGE:-wordtkeh:1.0.0}
+    restart: unless-stopped
+    ports:
+      - '${WORDTKEH_PORT:-8080}:8080'
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=32m,mode=1777
+    configs:
+      - source: runtime_config
+        target: /usr/share/nginx/html/config.json
+    cpus: 0.25
+    mem_limit: 128m
+    stop_signal: SIGQUIT
+    stop_grace_period: 30s
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'wget',
+          '-q',
+          '-O',
+          '/dev/null',
+          'http://127.0.0.1:8080/healthz',
+        ]
+      interval: 10s
+      timeout: 2s
+      retries: 3
+      start_period: 10s
+
+configs:
+  runtime_config:
+    file: ./config.json

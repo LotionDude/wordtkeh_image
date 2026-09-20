@@ -1,0 +1,7 @@
+apiVersion: v2
+name: wordtkeh
+description: Self-hosted static multilingual Wordtkeh application
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+kubeVersion: ">=1.25.0-0"

@@ -1,0 +1,93 @@
+{
+  "timezone": "Asia/Jerusalem",
+  "epochDate": "2026-09-21",
+  "streakSchedule": {
+    "activeWeekdays": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "excludedDates": []
+  },
+  "streaks": {
+    "initialFreezes": 3,
+    "maxFreezes": 5,
+    "playsPerFreezeEarned": 5,
+    "playStreakMilestones": [
+      3,
+      7,
+      14,
+      30,
+      50,
+      100
+    ],
+    "winStreakMilestones": [
+      3,
+      7,
+      14,
+      30,
+      50,
+      100
+    ]
+  },
+  "releases": [
+    {
+      "id": "initial-release",
+      "version": "1.0",
+      "date": "2026-09-21",
+      "type": "release",
+      "title": "The Beginning",
+      "features": [
+        "daily-puzzles",
+        "history-diary",
+        "random-mode",
+        "data-ownership"
+      ],
+      "changelog": [
+        "Wordtkeh is released.",
+        "Daily puzzles in English and Hebrew.",
+        "Easy, Hard and Expert difficulty modes.",
+        "History, calendar and private diary notes.",
+        "Independent Random games, history and statistics.",
+        "Local backup export, import and recovery."
+      ],
+      "translations": {
+        "he": {
+          "title": "ההתחלה",
+          "changelog": [
+            "Wordtkeh יוצא לדרך.",
+            "חידות יומיות באנגלית ובעברית.",
+            "רמות קושי קל, קשה ומומחה.",
+            "היסטוריה, לוח שנה והערות יומן פרטיות.",
+            "משחקים אקראיים, היסטוריה וסטטיסטיקה נפרדים.",
+            "ייצוא, ייבוא ושחזור גיבוי מקומי."
+          ]
+        }
+      }
+    }
+  ],
+  "historyJournal": {
+    "left": {
+      "title": "Wordtkeh v1.0",
+      "body": "Released: 01.10.2026\nLast updated: 01.10.2026",
+      "translations": {
+        "he": {
+          "title": "Wordtkeh v1.0",
+          "body": "תאריך השקה: 01.10.2026\nעדכון אחרון: 01.10.2026"
+        }
+      }
+    },
+    "right": {
+      "title": "History & diary",
+      "body": "Illustrated calendar.\nSaved guesses and private notes.",
+      "translations": {
+        "he": {
+          "title": "היסטוריה ויומן",
+          "body": "לוח שנה מאויר.\nניחושים שמורים והערות פרטיות."
+        }
+      }
+    }
+  }
+}

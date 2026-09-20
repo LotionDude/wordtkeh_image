@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "wordtkeh.fullname" . }}
+  labels:
+    {{- include "wordtkeh.labels" . | nindent 4 }}
+data:
+  config.json: |
+    {{- .Values.config | mustToPrettyJson | nindent 4 }}

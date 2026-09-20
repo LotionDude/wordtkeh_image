@@ -1,0 +1,26 @@
+# Copy deploy/helm (including this file) to the separate repository root.
+stages: [validate, deploy]
+default:
+  image:
+    name: alpine/helm:3.19.0
+    entrypoint: [""]
+variables:
+  HELM_VALUES_FILE: values-openshift.yaml
+  HELM_TIMEOUT: 5m
+validate:
+  stage: validate
+  script:
+    - helm lint .
+    - helm lint . -f values-openshift.yaml
+    - helm template validation . > /dev/null
+    - helm template validation . -f values-openshift.yaml > /dev/null
+    - sh ci/test-deploy.sh
+deploy-production:
+  stage: deploy
+  resource_group: wordtkeh-production
+  environment:
+    name: production
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE == "push"'
+  script:
+    - sh ci/deploy.sh
